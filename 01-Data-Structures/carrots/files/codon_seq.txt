@@ -1,0 +1,2 @@
+Последовательность кодонов для HSBGPG Human gene for bone gla protein (BGP): GRFPLDPPAPWSGMPLLIAGHSPEGINSAGGWRGRPAES
+Последовательность кодонов для HSGLTH1 Human theta 1-globin gene: PLHSPHPANFCVFSRD

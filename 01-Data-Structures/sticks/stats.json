@@ -19,12 +19,12 @@
  "most_common_region": "Columbia Valley",
  "average_score": 87.16
 },
- "Madera": {"avg_price": None,
- "min_price": None,
- "max_price": None,
- "most_common_country": None,
- "most_common_region": None,
- "average_score": None
+ "Madera": {"avg_price": "null",
+ "min_price": "null",
+ "max_price": "null",
+ "most_common_country": "null",
+ "most_common_region": "null",
+ "average_score": "null"
 },
  "Tempranillo": {"avg_price": 31.14,
  "min_price": 4,
@@ -52,7 +52,7 @@
  "Bandit NV Merlot (California)",
  "Dancing Coyote 2015 White (Clarksburg)",
  "Bandit NV Merlot (California)",
- "Felix Solis 2013 Flirty Bird Syrah (Vino de la Tierra de Castilla)', "Pam's Cuties NV Unoaked Chardonnay (California)"],
+ "Felix Solis 2013 Flirty Bird Syrah (Vino de la Tierra de Castilla)", "Pam's Cuties NV Unoaked Chardonnay (California)"],
  "highest_score": "100",
  "lowest_score": "80",
  "most_expensive_country": "Switzerland",

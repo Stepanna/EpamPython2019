@@ -24,15 +24,18 @@ def multi_replace(data, *subs):
     return data
 
 
-def dump_to_json(js_dicts, filename):
+def dump_to_json(js_dicts, filename, extr_subs=None):
     with open(filename, 'w', encoding='utf-8') as out:
         data = str(js_dicts)
-        subs = [("[{\'", '[\n{"'), ("\'}]", '"}\n]'), ("\'}, {\'", '"},\n {"'),
-                ("\': \'", '": "'), ('\': "', '": "'), ("\', \'", '",\n "'),
-                (", \'", ',\n "'), ("\'}, {\'", '"},\n {"'), ('\\\\', '\\'),
-                ('},', "\n},"), ("': {'", '": {"'), ("': ", '": '),
-                ("'}}", '"}}'), ("['", '["'), ("']", '"]'), ("{'", '{"'),
-                ("', ", '", '), ('None', '"null"')]
+        subs = [("[{'", '\n[\n\t{\n\t"'), ("'}]", '"\n\t}\n]\n'),
+                ("', '", '",\n\t"'), ("': '", '": "'),
+                ("'}, {'", '"},\n\t{\t"'), ("\"}, {'", '"\n},\n\t{\t"'),
+                ("'}, {\"", '"},\n\t{\t"'), ("': \"", '": "'),
+                ("\", '", '",\n\t"'), ('\\\\', '\\'), ('"null"', 'null'),
+                ("\\'", "'"), ("\'", "'")]
+        if extr_subs:
+            print(extr_subs)
+            subs.extend(extr_subs)
         data = multi_replace(data, *subs)
         out.write(data)
     return data
@@ -236,5 +239,10 @@ dump_to_json(full_data, 'winedata.json')
 variety_stat = calc_var_statistic(full_data)
 full_stat = calc_full_statistic(full_data)
 stats = {'statistics': {'wine': variety_stat, **full_stat}}
-dump_to_json(stats, 'stats.json')
+extra_subs = [("': {'", '": {"'), ("{'", '{\n"'), ("': ", '": "'),
+              (", '", '",\n"'), ("', ", '",\n"'), ("\"['", '"\n[\n"'),
+              ("']\",", '"]",'), ('"]",', '"],'), ('}}",', '"\n}\n},'),
+              ('"\n[\n"', '\n[\n"'), ('""', '"'), ('}",', '"},'),
+              ("'}}", '"\n}\n}')]
+dump_to_json(stats, 'stats.json', extra_subs)
 damp_to_md(stats, 'stat.md')

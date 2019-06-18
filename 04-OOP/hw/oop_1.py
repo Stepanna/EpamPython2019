@@ -37,11 +37,9 @@ PEP8 соблюдать строго, проверку делаю автотес
 К названием остальных переменных, классов и тд. подходить ответственно -
 давать логичные подходящие имена.
 """
-from dataclasses import dataclass
 import datetime
 
 
-@dataclass
 class Homework:
 
     def __init__(self, text, deadline):
@@ -62,13 +60,11 @@ class Student:
         self.last_name = last_name
         self.first_name = first_name
 
-    @classmethod
     def do_homework(self, homework):
         if homework.is_active():
             return homework
-        else:
-            print('You are late')
-            return None
+        print('You are late')
+        return None
 
 
 class Teacher:
@@ -77,8 +73,7 @@ class Teacher:
         self.last_name = last_name
         self.first_name = first_name
 
-    @classmethod
-    def create_homework(cls, text, deadline):
+    def create_homework(self, text, deadline):
         return Homework(text, deadline)
 
 

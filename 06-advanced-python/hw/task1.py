@@ -20,37 +20,6 @@ import shutil
 import os
 
 
-# class PrintableFolder:
-#     def __init__(self, name, content):
-#         self.name = name
-#         self.content = content
-#
-#     def __str__(self, depth=0):
-#         output = ['V ' + self.name]
-#         print(1)
-#         for item in self.content:
-#             if os.path.isfile(self.name + '\\' + str(item)):
-#                 item = PrintableFile(item)
-#                 if depth-1:
-#                     output.append("|  "*(depth-1) + str(item))
-#                 else:
-#                     output.append(str(item))
-#             if os.path.isdir(self.name + '\\' + str(item)):
-#                 if depth:
-#                     if depth-1:
-#                         output.append('|  '*depth+'| -> '+str(item))
-#                     else:
-#                         output.append("|-> " + str(item))
-#                 else:
-#                     output.append(str(item))
-#                 depth += 1
-#                 mew_folder = PrintableFolder(self.name+'\\'+item,
-#                                              os.listdir(self.name+'\\'+item))
-#                 mew_folder.__str__(depth)
-#                 depth -= 1
-#         return '\n'.join(output)
-
-
 class PrintableFolder:
     def __init__(self, name, content):
         self.name = name
